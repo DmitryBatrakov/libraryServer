@@ -1,0 +1,11 @@
+import express from 'express';
+import { BookController } from "../controllers/BookController.js";
+export const bookRouter = express.Router();
+const controller = new BookController();
+bookRouter.get('/', controller.getAllBooks);
+// bookRouter.post('/', bodyValidator(BookDtoJoiSchema), controller.addBook);
+bookRouter.post('/', controller.addBook);
+bookRouter.delete('/:id', controller.removeBook);
+bookRouter.get('/genre/:genre', controller.getBooksByGenre);
+bookRouter.post('/pick/:id', controller.pickUpBook);
+bookRouter.post('/return/:id', controller.returnBook);
