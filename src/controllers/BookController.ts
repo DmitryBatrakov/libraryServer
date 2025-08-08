@@ -34,7 +34,6 @@ export class BookController {
 
             const removed = this.libService.removeBook(id)
             res.json(removed)
-  
     }
 
     pickUpBook(req: Request, res: Response){
